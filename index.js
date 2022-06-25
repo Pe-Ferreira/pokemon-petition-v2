@@ -34,16 +34,7 @@ fetch(countriesAPIUrl)
     }
 });
 
-const dbRef = ref(getDatabase());
-get(child(dbRef, `votes/`)).then((snapshot) => {
-  if (snapshot.exists()) {
-    console.log(snapshot.val());
-  } else {
-    console.log("No data available");
-  }
-}).catch((error) => {
-  console.error(error);
-});
+loadVoteCounter();
 
 function vote() {
     const name = document.getElementById('name').value;
@@ -74,4 +65,22 @@ function voteFeedback(name) {
     alert(`Thanks for voting, ${name}!`);
     document.location.reload();
 }
+
+function loadVoteCounter() {
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, `votes/`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        const dataKeys = Object.keys(snapshot.val());
+
+        const voteCounter = document.getElementById('vote-counter');
+        voteCounter.innerHTML = dataKeys.length.toString();
+        
+      } else {
+        console.log('No data available');
+      }
+    }).catch((error) => {
+        console.error(error);
+    });
+}
+
 window.vote = vote;

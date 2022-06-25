@@ -8,26 +8,34 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body class="bg-gray-100">
-    <div class="px-8 py-12 max-w-md mx-auto sm:max-w-xl">
-        <img class="rounded-lg shadow-xl" src="./img/pokemon-fire-red.webp" alt="Pokemon FireRed">
-        <h1 class="mt-6 text-xl sm:text-3xl font-bold text-gray-900 text-center">Vote for <span class="text-red-500">Pokemon FireRed</span> remake!</h1>
-        <p class="mt-2 text-center sm:text-lg">Sign in this petition to ask Nintendo make a remake of the gorgeus Pokemon FireRed.</p>
-        <div class="mt-2 flex flex-col justify-center items-center">
-            <div>
-                <label for="name" class="block">Name</label>
-                <input id="name" type="text" class="form-input rounded-lg mb-2 focus:ring-red-500 focus:border-red-500" name="name">
+    <div class="px-8 pt-12 max-w-md mx-auto sm:max-w-xl h-screen flex flex-col">
+        <main class="mb-auto">
+            <img class="rounded-lg shadow-xl" src="./img/pokemon-fire-red.webp" alt="Pokemon FireRed">
+            <h1 class="mt-6 text-xl sm:text-3xl font-bold text-gray-900 text-center">Vote for <span class="text-red-500">Pokemon FireRed</span> remake!</h1>
+            <p class="mt-2 text-center sm:text-lg">Sign in this petition to ask Nintendo make a remake of the gorgeus Pokemon FireRed.</p>
+            <div class="mt-2 flex flex-col justify-center items-center">
+                <div>
+                    <label for="name" class="block">Name</label>
+                    <input id="name" type="text" class="form-input rounded-lg mb-2 focus:ring-red-500 focus:border-red-500" name="name">
+                </div>
+                <div>
+                    <label for="country" class="block">Country</label>
+                    <select id="country" class="form-select rounded-lg focus:ring-red-500 focus:border-red-500 w-52">
+                    </select>
+                </div>
+                <a class="inline-block px-5 py-3 mt-4 bg-red-800 rounded-lg text-xl uppercase hover:bg-red-500 font-bold text-gray-100 hover:-translate-y-1 transform transition shadow-lg " href="#" onclick="vote()">Vote</a>
+                <div class="flex flex-col justify-center items-center">
+                    <p id="vote-counter" class="mt-6 text-4xl font-bold"></p>
+                    <p>voters and counting!</p>
+                </div>
             </div>
-            <div>
-                <label for="country" class="block">Country</label>
-                <select id="country" class="form-select rounded-lg focus:ring-red-500 focus:border-red-500 w-52">
-                </select>
+        </main>
+        
+        <footer>
+            <div class="h-10 text-center">
+                Developed by <a class="hover:text-red-500 font-bold hover:-translate-y-1 transform transition" href="https://www.linkedin.com/in/peferreira/">Pedro Ferreira</a> &#10084;
             </div>
-            <a class="inline-block px-5 py-3 mt-4 bg-red-800 rounded-lg text-xl uppercase hover:bg-red-500 font-bold text-gray-100 hover:-translate-y-1 transform transition shadow-lg " href="#" onclick="vote()">Vote</a>
-            <div class="flex flex-col justify-center items-center">
-                <p id="vote-counter" class="mt-6 text-4xl font-bold"></p>
-                <p>voters and counting!</p>
-            </div>
-        </div>
+        </footer>
     </div>
     <script type="module" src="index.js"></script>
 </body>

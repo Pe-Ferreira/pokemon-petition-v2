@@ -46,17 +46,26 @@ function vote() {
 };
 
 function writeVoteData(name, country) {
-    fetch('https://pokemon-petition-default-rtdb.firebaseio.com/votes/.json', {
+    fetch('http://localhost:8080/vote', {
         method: 'POST',
         body: JSON.stringify({
             name: name,
             country: country
         }),
         headers: { 'Content-type': 'application/json; charset=UTF-8' },
-        mode: "no-cors"
+        mode: "cors"
     });
+    // fetch('https://pokemon-petition-default-rtdb.firebaseio.com/votes/.json', {
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //         name: name,
+    //         country: country
+    //     }),
+    //     headers: { 'Content-type': 'application/json; charset=UTF-8' },
+    //     mode: "no-cors"
+    // });
 
-    voteFeedback(name);
+    // voteFeedback(name);
 };
 
 function voteFeedback(name) {

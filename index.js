@@ -15,11 +15,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-const countriesAPIUrl = 'https://restcountries.com/v3.1/all';
-
-fetch(countriesAPIUrl)
-    .then(data => data.json())
-    .then(res => {
+fetch('http://localhost:8080/vote', {
+        method: 'GET',
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+        mode: "cors"
+    }).then(data => data.json()).then(res => {
         const select = document.getElementById('country');
         let countries = [];
 
@@ -55,17 +55,6 @@ function writeVoteData(name, country) {
         headers: { 'Content-type': 'application/json; charset=UTF-8' },
         mode: "cors"
     });
-    // fetch('https://pokemon-petition-default-rtdb.firebaseio.com/votes/.json', {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //         name: name,
-    //         country: country
-    //     }),
-    //     headers: { 'Content-type': 'application/json; charset=UTF-8' },
-    //     mode: "no-cors"
-    // });
-
-    // voteFeedback(name);
 };
 
 function voteFeedback(name) {
